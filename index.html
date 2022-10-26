@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/main.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selfish Meme</title>
+  </head>
+  <body onload="init()">
+    <header>
+      <div class="main-header main-layout flex justify-between align-center">
+        <h2 class="logo">
+          <a href="#">The Selfish Meme</a>
+        </h2>
+        <ul class="nav-bar flex clean-list">
+          <li>
+            <a href="#" class="flex justify-center align-center active"
+              >Gallery</a
+            >
+          </li>
+          <li>
+            <a href="#" class="flex justify-center align-center">Memes</a>
+          </li>
+          <li>
+            <a href="#" class="flex justify-center align-center">About</a>
+          </li>
+        </ul>
+        <button class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
+      </div>
+    </header>
+    <section class="main-content main-layout">
+
+    <div class="gallary-view">
+      <div onclick="onImgSelected(id)" class="img-container"><img src="img/12.jpg" alt=""></div>
+    </div>
+    
+    <div class="editor hide">
+      <div class="grid-container">
+        <div class="canvas-container">
+          <canvas
+        id="my-canvas"
+        height="450"
+        width="450"
+      ></canvas>
+        </div>
+        <div class="txt-input">
+          <input class="line-writer" onfocus="drawRect()" oninput="onSetLineTxt(this.value)" type="text">
+        </div>
+
+        <div class="up-down"><button onclick="onChangeLine()">
+        <img src="icons/up-and-down-opposite-double-arrows-side-by-side.png">
+        </button></div>
+        <div class="plus-line"><button onclick="onAddLine()">+</button></div>
+        <div class="delete-container">
+          <button onclick="onRemoveLine()"><img src="icons/trash-can.png" alt=""></button>
+        </div>
+        <div class="font-enlarge-containeer">
+          <button onclick="onChangeFontSize(1)">A+</button>
+        </div>
+        <div class="txt-mimizer-container">
+          <button onclick="onChangeFontSize(-1)">
+          <img src="icons/a.png" > -
+          </button>
+        </div>
+        <div class="align-left-cont">
+          <button onclick="onAlignTxt('right')"> <img src="icons/left-text-alignment-option.png" ></button>
+        </div>
+        <div class="align-center-cont">
+          <button onclick="onAlignTxt('center')"> <img src="icons/centered-text-of-alignment-button.png" ></button>
+        </div>
+        <div class="align-right-cont">
+          <button onclick="onAlignTxt('left')"> <img src="icons/right-text-alignment.png" ></button>
+        </div>
+        <div class="outline-cont"></div>
+        <div class="font-select-cont"></div>
+        <div class="stickers-container"></div>
+        <div class="share"></div>
+      </div>
+
+
+      
+    </div>
+  </body>
+</section>
+  <script src="js/controller/controller.js"></script>
+  <script src="js/controller/memeController.js"></script>
+  <script src="js/controller/galleryController.js"></script>
+  <script src="js/service/memeService.js"></script>
+  <script src="js/service/utils.js"></script>
+  <script src="js/service/storage.js"></script>
+</html>

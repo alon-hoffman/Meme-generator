@@ -1,0 +1,84 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 15px 15px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "canvas-container . txt-input txt-input txt-input txt-input txt-input"
+    "canvas-container . . up-down plus-line delete-container ."
+    "canvas-container . font-enlarge-containeer txt-mimizer-container align-left-cont align-center-cont align-right-cont"
+    "canvas-container . font-select-cont font-select-cont font-select-cont outline-cont ."
+    "canvas-container . stickers-container stickers-container stickers-container stickers-container stickers-container"
+    "canvas-container . stickers-container stickers-container stickers-container stickers-container stickers-container"
+    "canvas-container . . . . share share";
+
+  /* align-items: center;
+  justify-items: center; */
+}
+
+.canvas-container {
+  grid-area: canvas-container;
+}
+
+.txt-input {
+  grid-area: txt-input;
+}
+
+.up-down {
+  grid-area: up-down;
+}
+
+.plus-line {
+  grid-area: plus-line;
+}
+
+.delete-container {
+  grid-area: delete-container;
+}
+
+.font-enlarge-containeer {
+  grid-area: font-enlarge-containeer;
+}
+
+.txt-mimizer-container {
+  grid-area: txt-mimizer-container;
+}
+
+.align-left-cont {
+  grid-area: align-left-cont;
+}
+
+.align-center-cont {
+  grid-area: align-center-cont;
+}
+
+.align-right-cont {
+  grid-area: align-right-cont;
+}
+
+.outline-cont {
+  grid-area: outline-cont;
+}
+
+.font-select-cont {
+  grid-area: font-select-cont;
+}
+
+.stickers-container {
+  grid-area: stickers-container;
+}
+
+.share {
+  grid-area: share;
+}
+
+.grid-container > .txt-input > * {
+  width: 100%;
+}
+
+.grid-container button {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
