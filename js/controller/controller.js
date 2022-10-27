@@ -1,5 +1,13 @@
+'use strict'
+
+let gCtx
+let gElCanvas
 function init() {
     gElCanvas = document.getElementById('my-canvas')
+    if (screen.width < 640) {
+        gElCanvas.width = screen.width
+        gElCanvas.height = screen.width
+    }
     gCtx = gElCanvas.getContext('2d')
     displayTemplates()
     renderMeme()

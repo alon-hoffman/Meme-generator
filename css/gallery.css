@@ -7,6 +7,7 @@
 
 .gallary-view .img-container {
   background-color: black;
+  overflow: hidden;
 }
 
 .gallary-view img {
@@ -16,4 +17,5 @@
 .gallary-view img:hover {
   cursor: pointer;
   opacity: 0.2;
+  transform: scale(1.1);
 }

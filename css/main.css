@@ -1,15 +1,18 @@
 @import "grid.css";
 @import "gallery.css";
 @import "fa.css";
+@import "footer.css";
 
 :root {
   /* pallet */
-  --clr6: #e5e5e5;
+  --clr6: #e3e3e3;
+  /* --clr6: #e5e5e5; */
   --clr5: #9b9b9b;
   --clr4: #ffffff;
   --clr3: #606075;
   --clr2: #000;
-  --clr1: #292929;
+  --clr1: #ff7f00;
+  /* --clr1: #292929; */
   --clrActive: #58c93a;
   --clrHover: #58c93a;
 
@@ -21,6 +24,7 @@
 
 * {
   box-sizing: border-box;
+  background-color: var;
 }
 
 html {
@@ -30,6 +34,7 @@ html {
 
 body {
   margin: 0;
+  background-color: var(--clr6);
 }
 
 h1,
@@ -69,6 +74,10 @@ img {
 @font-face {
   font-family: fa;
   src: url(/fonts/awesome/fa-brands-400.ttf);
+}
+@font-face {
+  font-family: hopeless;
+  src: url(/fonts/hopeless-place/Hopeless\ Place.ttf);
 }
 
 h1,
@@ -141,9 +150,14 @@ p {
 /* font awsome */
 
 /* Components  */
-.main-content {
+/* .main-content {
   border-left: 2px solid var(--clr3);
   border-right: 2px solid var(--clr3);
+} */
+
+#my-canvas {
+  width: 350px;
+  height: 350px;
 }
 
 header {
@@ -152,7 +166,9 @@ header {
 }
 
 .logo {
-  font-family: euro;
+  text-align: center;
+  font-family: hopeless;
+  letter-spacing: 10px;
   font-size: 2.5em;
   margin: 0;
 }
@@ -225,7 +241,8 @@ header {
 /* SMALL */
 @media (min-width: 640px) {
   .main-layout {
-    max-width: 600px;
+    max-width: 100%;
+    /* max-width: 600px; */
     padding-left: 0;
     padding-right: 0;
   }
@@ -273,5 +290,9 @@ header {
   .main-header .nav-bar a {
     height: 130px;
     width: 130px;
+  }
+  #my-canvas {
+    width: 450px;
+    height: 450px;
   }
 }

@@ -1,0 +1,25 @@
+.main-footer {
+  text-align: center;
+  padding: 3.75em 0;
+  background-color: var(--clr1);
+}
+
+.main-footer .main-layout {
+  height: 11.875em;
+}
+
+.footer-links {
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.footer-links a {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr6);
+  color: var(--clr4);
+}

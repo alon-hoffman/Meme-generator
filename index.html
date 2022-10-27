@@ -29,60 +29,110 @@
         <button class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
       </div>
     </header>
+
     <section class="main-content main-layout">
-
-    <div class="gallary-view">
-      <div onclick="onImgSelected(id)" class="img-container"><img src="img/12.jpg" alt=""></div>
-    </div>
-    
-    <div class="editor hide">
-      <div class="grid-container">
-        <div class="canvas-container">
-          <canvas
-        id="my-canvas"
-        height="450"
-        width="450"
-      ></canvas>
+      <div class="gallary-view">
+        <div onclick="onImgSelected(id)" class="img-container">
+          <img src="img/12.jpg" alt="" />
         </div>
-        <div class="txt-input">
-          <input class="line-writer" onfocus="drawRect()" oninput="onSetLineTxt(this.value)" type="text">
-        </div>
-
-        <div class="up-down"><button onclick="onChangeLine()">
-        <img src="icons/up-and-down-opposite-double-arrows-side-by-side.png">
-        </button></div>
-        <div class="plus-line"><button onclick="onAddLine()">+</button></div>
-        <div class="delete-container">
-          <button onclick="onRemoveLine()"><img src="icons/trash-can.png" alt=""></button>
-        </div>
-        <div class="font-enlarge-containeer">
-          <button onclick="onChangeFontSize(1)">A+</button>
-        </div>
-        <div class="txt-mimizer-container">
-          <button onclick="onChangeFontSize(-1)">
-          <img src="icons/a.png" > -
-          </button>
-        </div>
-        <div class="align-left-cont">
-          <button onclick="onAlignTxt('right')"> <img src="icons/left-text-alignment-option.png" ></button>
-        </div>
-        <div class="align-center-cont">
-          <button onclick="onAlignTxt('center')"> <img src="icons/centered-text-of-alignment-button.png" ></button>
-        </div>
-        <div class="align-right-cont">
-          <button onclick="onAlignTxt('left')"> <img src="icons/right-text-alignment.png" ></button>
-        </div>
-        <div class="outline-cont"></div>
-        <div class="font-select-cont"></div>
-        <div class="stickers-container"></div>
-        <div class="share"></div>
       </div>
 
+      <div class="editor hide">
+        <div class="grid-container">
+          <div class="canvas-container">
+            <canvas id="my-canvas" height="450" width="450"></canvas>
+          </div>
+          <div class="txt-input">
+            <input
+              class="line-writer"
+              onfocus="drawRect()"
+              oninput="onSetLineTxt(this.value)"
+              type="text"
+            />
+          </div>
 
-      
-    </div>
+          <div class="up-down">
+            <button onclick="onChangeLine()">
+              <img
+                src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
+              />
+            </button>
+          </div>
+          <div class="plus-line">
+            <button onclick="onAddLine()"><img src="icons/plus.png" /></button>
+          </div>
+          <div class="delete-container">
+            <button onclick="onRemoveLine()">
+              <img src="icons/trash-can.png" alt="" />
+            </button>
+          </div>
+          <div class="font-enlarge-containeer">
+            <button onclick="onChangeFontSize(1)">
+              <img src="icons/increase font - icon.png" />
+            </button>
+          </div>
+          <div class="txt-mimizer-container">
+            <button onclick="onChangeFontSize(-1)">
+              <img src="icons/decrease font - icon.png" />
+            </button>
+          </div>
+          <div class="align-left-cont">
+            <button onclick="onAlignTxt('right')">
+              <img src="icons/left-text-alignment-option.png" />
+            </button>
+          </div>
+          <div class="align-center-cont">
+            <button onclick="onAlignTxt('center')">
+              <img src="icons/centered-text-of-alignment-button.png" />
+            </button>
+          </div>
+          <div class="align-right-cont">
+            <button onclick="onAlignTxt('left')">
+              <img src="icons/right-text-alignment.png" />
+            </button>
+          </div>
+          <div class="outline-cont">
+            <input
+              onchange="onSelectOutLine(this.value)"
+              class="outine-color"
+              type="color"
+            />
+          </div>
+          <div class="color-cont">
+            <input
+              onchange="onSelectOutLine(this.value)"
+              class="outine-color"
+              type="color"
+            />
+          </div>
+          <div class="font-select-cont">
+            <select onchange="onChangeFont(this.value)" name="" id="">
+              <option value="Impact">Impact</option>
+              <option value="lato">lato</option>
+              <option value="Times New Roman  ">Times New Roman</option>
+              <option value="Arial   ">Arial</option>
+              <option value="Comic Sans MS   ">Comic Sans</option>
+            </select>
+          </div>
+          <div class="stickers-container"></div>
+          <div class="share"></div>
+        </div>
+      </div>
+    </section>
+
+    
+    <footer class="main-footer">
+      <div class="main-layout flex flex-column justify-between">
+        <h3 class="logo">The Selfish Meme</h3>
+        <p>
+          &copy; 2022 The Selfish Meme - All Rights Reserved - Find more 
+           at <a href="https://alon-hoffman.github.io/portfolio/"><strong>my site</strong></a>
+        </p>
+        
+      </div>
+
   </body>
-</section>
+
   <script src="js/controller/controller.js"></script>
   <script src="js/controller/memeController.js"></script>
   <script src="js/controller/galleryController.js"></script>

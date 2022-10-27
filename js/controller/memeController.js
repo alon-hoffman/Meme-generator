@@ -1,3 +1,7 @@
+const userPrefs = {
+    font: 'Impact'
+}
+
 function renderMeme() {
     const meme = getCurrentMeme()
 
@@ -22,6 +26,7 @@ function onAddLine() {
     addLine()
     renderMeme()
     updateTxtInput()
+    drawRect()
 }
 
 //Lines******************************
@@ -30,16 +35,20 @@ function onSetLineTxt(txt) {
     setLineTxt(txt)
     renderMeme()
     updateTxtInput()
+    drawRect()
 }
 
 function renderLines(meme) {
+    // const ElCanvas = document.getElementById('my-canvas')
+
     const lines = meme.lines
     lines.forEach(line => {
-        const fontSize = line.size
+        const fontSize = line.size * gElCanvas.width
         const txt = line.txt
         gCtx.lineWidth = fontSize / 40
-        gCtx.font = fontSize + 'px Impact'
-        gCtx.strokeStyle = 'white'
+        gCtx.font = fontSize + `px ${line.font}`
+        // gCtx.font = fontSize + 'px Impact'
+        gCtx.strokeStyle = line.outline
         gCtx.fillStyle = line.color
         gCtx.textAlign = line.align
         gCtx.fillText(txt, 225, line.yPose) // Draws (fills) a given text at the given (x, y) position.
@@ -67,6 +76,17 @@ function onAlignTxt(dir) {
     renderMeme()
 }
 
+function onChangeFont(font) {
+    console.log('onchange');
+    changeFont(font)
+    renderMeme()
+}
+
+function onSelectOutLine(color) {
+    setOutLineColor(color)
+    renderMeme()
+}
+
 
 //Nice to haves
 
@@ -76,8 +96,8 @@ function drawRect() {
     // gCtx.strokeStyle = 'black'
     // gCtx.strokeRect(20, line.yPose - line.size + 5, 410, line.size + 5)
     gCtx.fillStyle = 'rgba(255, 255, 255, 0.342)'
-    gCtx.fillRect(20, line.yPose - line.size + 5, 410, line.size + 5)
-    setTimeout(renderMeme, 1000)
+    gCtx.fillRect(20, line.yPose - (gElCanvas.width * line.size) + 5, 410, (gElCanvas.width * line.size) + 5)
+    setTimeout(renderMeme, 3000)
 }
 
 function updateTxtInput() {

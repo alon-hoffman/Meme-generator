@@ -37,9 +37,10 @@ function setLineTxt(txt) {
 function addLine() {
     gMeme.lines.push({
         txt: '',
-        size: 40,
+        size: 0.1,
         align: 'center',
         color: 'black',
+        font: 'Impact',
         yPose: defaultLinePlacement[gMeme.lines.length]
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
@@ -60,11 +61,19 @@ function changeLine() {
 //typography
 
 function changeFontSize(dir) {
-    gMeme.lines[gMeme.selectedLineIdx].size += dir
+    gMeme.lines[gMeme.selectedLineIdx].size += dir * 0.01
 }
 
 function alignTxt(dir) {
     gMeme.lines[gMeme.selectedLineIdx].align = dir
+}
+
+function changeFont(font) {
+    gMeme.lines[gMeme.selectedLineIdx].font = font
+}
+
+function setOutLineColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].outline = color
 }
 //Meme CRUD
 
@@ -76,9 +85,11 @@ function createMeme(imgId) {
         lines: [
             {
                 txt: '',
-                size: 40,
+                size: 0.1,
                 align: 'center',
                 color: 'black',
+                outline: 'white',
+                font: 'Impact',
                 yPose: defaultLinePlacement[0]
             }
         ]
