@@ -40,7 +40,7 @@
       <div class="editor hide">
         <div class="grid-container">
           <div class="canvas-container">
-            <canvas id="my-canvas" height="450" width="450"></canvas>
+            <canvas id="my-canvas" class="my-canvas" height="450" width="450"></canvas>
           </div>
           <div class="txt-input">
             <input
@@ -91,19 +91,22 @@
               <img src="icons/right-text-alignment.png" />
             </button>
           </div>
-          <div class="outline-cont">
+          <div onclick="onOpenColorPicker(this)" class="outline-cont">
             <input
-              onchange="onSelectOutLine(this.value)"
-              class="outine-color"
+            oninput="onSelectColor(this.value,'outline')"
+              class="outine-color hide"
               type="color"
             />
+            <img  src="icons/a.png" alt="">
+
           </div>
-          <div class="color-cont">
+          <div onclick="onOpenColorPicker(this)" class="color-cont">
             <input
-              onchange="onSelectOutLine(this.value)"
-              class="outine-color"
+            oninput="onSelectColor(this.value,'color')"
+              class="outine-color hide"
               type="color"
             />
+            <img src="icons/color-picker.png">
           </div>
           <div class="font-select-cont">
             <select onchange="onChangeFont(this.value)" name="" id="">
@@ -114,7 +117,11 @@
               <option value="Comic Sans MS   ">Comic Sans</option>
             </select>
           </div>
-          <div class="stickers-container"></div>
+          <div class="stickers-container ">
+           <span onclick="moveStickers(-1)">◀️</span>
+            <span class="sticker-txt"></span>
+            <span onclick="moveStickers(1)">▶️</span> 
+          </div>
           <div class="share"></div>
         </div>
       </div>

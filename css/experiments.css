@@ -20,3 +20,18 @@
     background-color: var(--clr6);
   }
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px 10px;
+  grid-template-areas:
+    "canvas-container txt-input txt-input txt-input txt-input txt-input"
+    "canvas-container . up-down plus-line delete-container ."
+    "canvas-container font-enlarge-containeer txt-mimizer-container align-left-cont align-center-cont align-right-cont"
+    "canvas-container font-select-cont font-select-cont font-select-cont outline-cont color-cont"
+    "canvas-container stickers-container stickers-container stickers-container stickers-container stickers-container"
+    "canvas-container stickers-container stickers-container stickers-container stickers-container stickers-container"
+    "canvas-container . . . share share";
+}

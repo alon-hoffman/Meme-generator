@@ -34,6 +34,18 @@ function setLineTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
 
+function selectByClick(i) {
+    gMeme.selectedLineIdx = i
+    gMeme.lines[gMeme.selectedLineIdx].isDragged = true
+}
+
+function moveLine(pos) {
+    gMeme.lines[gMeme.selectedLineIdx].yPose = pos.y
+    gMeme.lines[gMeme.selectedLineIdx].xPose = pos.x
+}
+
+
+
 function addLine() {
     gMeme.lines.push({
         txt: '',
@@ -41,7 +53,8 @@ function addLine() {
         align: 'center',
         color: 'black',
         font: 'Impact',
-        yPose: defaultLinePlacement[gMeme.lines.length]
+        yPose: defaultLinePlacement[gMeme.lines.length] || 210,
+        xPose: gElCanvas.width / 2
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
     gMeme.selectedLineIdx[gMeme.lines.length - 1]
@@ -72,8 +85,8 @@ function changeFont(font) {
     gMeme.lines[gMeme.selectedLineIdx].font = font
 }
 
-function setOutLineColor(color) {
-    gMeme.lines[gMeme.selectedLineIdx].outline = color
+function setColor(color, isOutline) {
+    gMeme.lines[gMeme.selectedLineIdx][isOutline] = color
 }
 //Meme CRUD
 
@@ -90,7 +103,8 @@ function createMeme(imgId) {
                 color: 'black',
                 outline: 'white',
                 font: 'Impact',
-                yPose: defaultLinePlacement[0]
+                yPose: defaultLinePlacement[0],
+                xPose: gElCanvas.width / 2
             }
         ]
     }

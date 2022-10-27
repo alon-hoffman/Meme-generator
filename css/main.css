@@ -155,7 +155,12 @@ p {
   border-right: 2px solid var(--clr3);
 } */
 
-#my-canvas {
+.outine-color {
+  display: fixed;
+  inset-inline-end: 0;
+}
+
+.my-canvas {
   width: 350px;
   height: 350px;
 }
@@ -209,7 +214,6 @@ header {
 /* MOILE ONLY */
 @media (max-width: 640px) {
   header {
-    position: fixed;
     width: 100%;
     box-shadow: none;
     z-index: 1;
@@ -291,7 +295,7 @@ header {
     height: 130px;
     width: 130px;
   }
-  #my-canvas {
+  .my-canvas {
     width: 450px;
     height: 450px;
   }

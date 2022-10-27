@@ -1,3 +1,5 @@
+'use strict';
+
 const userPrefs = {
     font: 'Impact'
 }
@@ -17,6 +19,7 @@ function renderMeme() {
 function onChangeLine() {
     changeLine()
     renderMeme()
+    updateTxtInput()
 }
 
 
@@ -27,6 +30,7 @@ function onAddLine() {
     renderMeme()
     updateTxtInput()
     drawRect()
+    document.querySelector('.line-writer').focus()
 }
 
 //Lines******************************
@@ -51,17 +55,29 @@ function renderLines(meme) {
         gCtx.strokeStyle = line.outline
         gCtx.fillStyle = line.color
         gCtx.textAlign = line.align
-        gCtx.fillText(txt, 225, line.yPose) // Draws (fills) a given text at the given (x, y) position.
-        gCtx.strokeText(txt, 225, line.yPose) // Draws (strokes) a given text at the given (x, y) position.
+        gCtx.fillText(txt, line.xPose, line.yPose) // Draws (fills) a given text at the given (x, y) position.
+        gCtx.strokeText(txt, line.xPose, line.yPose) // Draws (strokes) a given text at the given (x, y) position.
     }
     );
 }
 
 function onRemoveLine() {
+    const meme = getCurrentMeme()
     removeLine()
     renderMeme()
     document.querySelector('.line-writer').value = meme.lines[meme.selectedLineIdx].txt
 
+}
+
+function onSelectByClick(i) {
+    selectByClick(i)
+    updateTxtInput()
+}
+
+function onMoveLine(pos) {
+    console.log("onMoveLine");
+    moveLine(pos)
+    renderMeme()
 }
 
 //Typography
@@ -82,9 +98,14 @@ function onChangeFont(font) {
     renderMeme()
 }
 
-function onSelectOutLine(color) {
-    setOutLineColor(color)
+function onSelectColor(color, type) {
+    console.log('hi');
+    setColor(color, type)
     renderMeme()
+}
+
+function onOpenColorPicker(el) {
+    el.querySelector('.outine-color').click()
 }
 
 
@@ -103,6 +124,7 @@ function drawRect() {
 function updateTxtInput() {
     const meme = getCurrentMeme()
     document.querySelector('.line-writer').value = meme.lines[meme.selectedLineIdx].txt
+    document.querySelector('.line-writer').focus()
 }
 
 

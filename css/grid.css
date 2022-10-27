@@ -3,7 +3,7 @@
   justify-content: center;
   /* grid-template-columns: 5fr 1fr 1fr 1fr 1fr 1fr 1fr; */
   /* grid-template-columns: repeat(5, 1fr); */
-  grid-template-rows: 5fr repeat(9, 1fr);
+  grid-template-rows: 5fr repeat(6, 1fr) 0.5fr 1fr;
   gap: 20px 20px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -72,6 +72,10 @@
 
 .stickers-container {
   grid-area: stickers-container;
+  background-color: white;
+  margin-left: 3px;
+  margin-right: 3px;
+  border-radius: 10px;
 }
 
 .share {
@@ -140,11 +144,9 @@
       "canvas-container . txt-input txt-input txt-input txt-input txt-input."
       "canvas-container . . up-down plus-line delete-container . ."
       "canvas-container . font-enlarge-containeer txt-mimizer-container align-left-cont align-center-cont align-right-cont ."
-      "canvas-container . font-select-cont font-select-cont font-select-cont outline-cont . ."
+      "canvas-container . font-select-cont font-select-cont font-select-cont outline-cont color-cont ."
       "canvas-container . stickers-container stickers-container stickers-container stickers-container stickers-container ."
       "canvas-container . stickers-container stickers-container stickers-container stickers-container stickers-container ."
       "canvas-container . . . . share share .";
-
-    background-color: var(--clr6);
   }
 }
