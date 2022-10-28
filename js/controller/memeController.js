@@ -6,9 +6,12 @@ const userPrefs = {
 
 function renderMeme() {
     const meme = getCurrentMeme()
+    if (meme.selectedImgId === "upload") return
+    else { var src = `img/${meme.selectedImgId}.jpg` }
 
     const img = new Image() // Create a new html img element
-    img.src = `img/${meme.selectedImgId}.jpg` // Send a network req to get that image, define the img src
+    img.src = src // Send a network req to get that image, define the img src
+    // img.src = `img/${meme.selectedImgId}.jpg` // Send a network req to get that image, define the img src
     // When the image ready draw it on the canvas
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -75,7 +78,6 @@ function onSelectByClick(i) {
 }
 
 function onMoveLine(pos) {
-    console.log("onMoveLine");
     moveLine(pos)
     renderMeme()
 }
@@ -93,13 +95,11 @@ function onAlignTxt(dir) {
 }
 
 function onChangeFont(font) {
-    console.log('onchange');
     changeFont(font)
     renderMeme()
 }
 
 function onSelectColor(color, type) {
-    console.log('hi');
     setColor(color, type)
     renderMeme()
 }

@@ -63,17 +63,17 @@ img {
 
 @font-face {
   font-family: euro;
-  src: url(/fonts/eurof55.ttf);
+  src: url("../fonts/eurof55.ttf");
 }
 
 @font-face {
   font-family: lato;
-  src: url(/fonts/Lato/Lato-Regular.ttf);
+  src: url("../fonts/Lato/Lato-Regular.ttf");
 }
 
 @font-face {
   font-family: fa;
-  src: url(/fonts/awesome/fa-brands-400.ttf);
+  src: url("../fonts/awesome/fa-brands-400.ttf");
 }
 @font-face {
   font-family: hopeless;
@@ -158,6 +158,9 @@ p {
 .outine-color {
   display: fixed;
   inset-inline-end: 0;
+}
+
+.stickers-container {
 }
 
 .my-canvas {

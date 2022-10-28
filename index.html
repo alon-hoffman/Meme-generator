@@ -122,7 +122,10 @@
             <span class="sticker-txt"></span>
             <span onclick="moveStickers(1)">▶️</span> 
           </div>
-          <div class="share"></div>
+          <div class="share">
+    <a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a>
+
+          </div>
         </div>
       </div>
     </section>
@@ -138,9 +141,18 @@
         
       </div>
 
+      <div class="inputs">
+        <input
+          type="file"
+          class="file-input btn"
+          name="image"
+          onchange="onImgInput(event)"
+        />
+
   </body>
 
   <script src="js/controller/controller.js"></script>
+  <script src="js/controller/share.js"></script>
   <script src="js/controller/memeController.js"></script>
   <script src="js/controller/galleryController.js"></script>
   <script src="js/service/memeService.js"></script>

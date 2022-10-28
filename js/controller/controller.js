@@ -79,16 +79,15 @@ function getEvPos(ev) {
     }
     // Check if its a touch ev
     if (TOUCH_EVS.includes(ev.type)) {
-        //soo we will not trigger the mouse ev
         ev.preventDefault()
-        //Gets the first touch point
-        touchmove
+        ev = ev.touches[0] || ev.originalEvent.changedTouches[0]
         //Calc the right pos according to the touch screen
         pos = {
             x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
             y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
         }
     }
+    console.log(pos);
     return pos
 }
 
@@ -103,3 +102,6 @@ function switchToGallery() {
     document.querySelector('.editor').classList.add('hide');
     document.querySelector('.gallary-view').classList.remove('hide');
 }
+
+//share and download
+
