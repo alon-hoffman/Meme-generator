@@ -1,9 +1,11 @@
 .grid-container {
+  padding-left: 40px;
+  padding-right: 40px;
   display: grid;
   justify-content: center;
   /* grid-template-columns: 5fr 1fr 1fr 1fr 1fr 1fr 1fr; */
   /* grid-template-columns: repeat(5, 1fr); */
-  grid-template-rows: 5fr repeat(6, 1fr) 0.5fr 1fr;
+  /* grid-template-rows: 5fr repeat(6, 1fr) 0.5fr 1fr; */
   gap: 20px 20px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -12,9 +14,9 @@
     ". up-down plus-line delete-container ."
     "font-enlarge-containeer txt-mimizer-container align-left-cont align-center-cont align-right-cont"
     "font-select-cont font-select-cont font-select-cont outline-cont color-cont"
+    ". save-cont url-cont download-cont ."
     "stickers-container stickers-container stickers-container stickers-container stickers-container"
-    "stickers-container stickers-container stickers-container stickers-container stickers-container"
-    ". share share share .";
+    ". . . . .";
   background-color: var(--clr6);
 }
 
@@ -82,6 +84,14 @@
   grid-area: share;
 }
 
+.url-cont {
+  grid-area: url-cont;
+}
+
+.download-cont {
+  grid-area: download-cont;
+}
+
 .grid-container > .txt-input > * {
   width: 100%;
   height: 100%;
@@ -114,39 +124,41 @@
   /* opacity: 0%; */
 }
 
-@media (min-width: 640px) {
+.save-cont {
+  grid-area: save-cont;
+  background-color: aqua;
+}
+
+@media (min-width: 840px) {
   .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
     gap: 5px 10px;
     grid-template-areas:
       "canvas-container txt-input txt-input txt-input txt-input txt-input"
       "canvas-container . up-down plus-line delete-container ."
       "canvas-container font-enlarge-containeer txt-mimizer-container align-left-cont align-center-cont align-right-cont"
       "canvas-container font-select-cont font-select-cont font-select-cont outline-cont color-cont"
-      "canvas-container stickers-container stickers-container stickers-container stickers-container stickers-container"
-      "canvas-container stickers-container stickers-container stickers-container stickers-container stickers-container"
-      "canvas-container . . . share share";
+      "canvas-container  . save-cont url-cont download-cont . ";
   }
 }
 
-@media (min-width: 880px) {
+@media (min-width: 1020px) {
   .grid-container {
     display: grid;
-    grid-template-columns: 5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 5fr 1fr 1fr 1fr 1fr 1fr 1fr; */
     /* grid-template-columns: 1fr repeat(6, 1fr); */
-    grid-template-rows: repeat(8, 1fr);
+    /* grid-template-rows: repeat(7, 1fr); */
     gap: 20px 20px;
     grid-auto-flow: row;
     grid-template-areas:
-      " . . . . . . . ."
+      ". . . . . . . . "
       "canvas-container . txt-input txt-input txt-input txt-input txt-input."
       "canvas-container . . up-down plus-line delete-container . ."
       "canvas-container . font-enlarge-containeer txt-mimizer-container align-left-cont align-center-cont align-right-cont ."
       "canvas-container . font-select-cont font-select-cont font-select-cont outline-cont color-cont ."
-      "canvas-container . stickers-container stickers-container stickers-container stickers-container stickers-container ."
-      "canvas-container . stickers-container stickers-container stickers-container stickers-container stickers-container ."
-      "canvas-container . . . . share share .";
+      "canvas-container . . save-cont url-cont download-cont . ."
+      ". . . . . . . . ";
   }
 }

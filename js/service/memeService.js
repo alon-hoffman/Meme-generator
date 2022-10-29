@@ -17,7 +17,7 @@ const gMemes = [
     }
 ]
 
-const defaultLinePlacement = [80, 350, 220]
+const defaultLinePlacement = [0.2, 0.8, 0.5]
 
 let gMeme = gMemes[0]
 
@@ -40,8 +40,12 @@ function selectByClick(i) {
 }
 
 function moveLine(pos) {
-    gMeme.lines[gMeme.selectedLineIdx].yPose = pos.y
-    gMeme.lines[gMeme.selectedLineIdx].xPose = pos.x
+    gMeme.lines[gMeme.selectedLineIdx].yPose = pos.y / gElCanvas.width
+    gMeme.lines[gMeme.selectedLineIdx].xPose = pos.x / gElCanvas.width
+}
+
+function updateLine(property, value) {
+    gMeme.lines[gMeme.selectedLineIdx][property] = value
 }
 
 
@@ -54,7 +58,7 @@ function addLine() {
         color: 'black',
         font: 'Impact',
         yPose: defaultLinePlacement[gMeme.lines.length] || 210,
-        xPose: gElCanvas.width / 2
+        xPose: 0.5
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
     gMeme.selectedLineIdx[gMeme.lines.length - 1]
@@ -77,20 +81,11 @@ function changeFontSize(dir) {
     gMeme.lines[gMeme.selectedLineIdx].size += dir * 0.01
 }
 
-function alignTxt(dir) {
-    gMeme.lines[gMeme.selectedLineIdx].align = dir
-}
 
-function changeFont(font) {
-    gMeme.lines[gMeme.selectedLineIdx].font = font
-}
-
-function setColor(color, isOutline) {
-    gMeme.lines[gMeme.selectedLineIdx][isOutline] = color
-}
 //Meme CRUD
 
 function createMeme(imgId) {
+
     gMeme = {
         id: makeId(),
         selectedImgId: imgId,
@@ -104,9 +99,15 @@ function createMeme(imgId) {
                 outline: 'white',
                 font: 'Impact',
                 yPose: defaultLinePlacement[0],
-                xPose: gElCanvas.width / 2
+                xPose: 0.5
             }
         ]
+    }
+}
+
+function _createLine() {
+    return {
+
     }
 }
 

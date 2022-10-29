@@ -1,7 +1,5 @@
 @import "grid.css";
 @import "gallery.css";
-@import "fa.css";
-@import "footer.css";
 
 :root {
   /* pallet */
@@ -35,24 +33,7 @@ html {
 body {
   margin: 0;
   background-color: var(--clr6);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0 0 1em;
-}
-
-p {
-  margin: 0 0 1em;
-}
-
-a {
-  text-decoration: none;
-  color: unset;
+  height: 100%;
 }
 
 img {
@@ -60,44 +41,6 @@ img {
 }
 
 /* TYPOGRAPHY */
-
-@font-face {
-  font-family: euro;
-  src: url("../fonts/eurof55.ttf");
-}
-
-@font-face {
-  font-family: lato;
-  src: url("../fonts/Lato/Lato-Regular.ttf");
-}
-
-@font-face {
-  font-family: fa;
-  src: url("../fonts/awesome/fa-brands-400.ttf");
-}
-@font-face {
-  font-family: hopeless;
-  src: url(/fonts/hopeless-place/Hopeless\ Place.ttf);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0 0 1em;
-}
-
-h1 {
-  font-size: 1.75em;
-}
-
-p {
-  font-family: lato;
-}
-
-/* layout  */
 
 .main-layout {
   margin: 0 auto;
@@ -110,8 +53,6 @@ p {
 }
 
 /* Helpers */
-
-/* flex helpers */
 
 .flex {
   display: flex;
@@ -127,6 +68,10 @@ p {
 
 .flex.justify-between {
   justify-content: space-between;
+}
+
+.flex.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .flex.align-center {
@@ -147,45 +92,33 @@ p {
   list-style-type: none;
 }
 
-/* font awsome */
-
-/* Components  */
-/* .main-content {
-  border-left: 2px solid var(--clr3);
-  border-right: 2px solid var(--clr3);
-} */
-
 .outine-color {
   display: fixed;
   inset-inline-end: 0;
 }
 
-.stickers-container {
-}
-
-.my-canvas {
-  width: 350px;
-  height: 350px;
-}
-
 header {
   background-color: var(--clr1);
-  box-shadow: inset 0px -6px 0 var(--clr2);
+
+  /* box-shadow: inset 0px -6px 0 var(--clr2); */
+  min-height: 4em;
 }
 
 .logo {
   text-align: center;
-  font-family: hopeless;
-  letter-spacing: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: "Courier New", Courier, monospace; */
   font-size: 2.5em;
   margin: 0;
+  padding-top: 1rem;
 }
 
 .main-header .logo {
   color: white;
 }
 
-.main-header .nav-bar a {
+.main-header .nav-bar a,
+button {
   height: 100px;
   width: 100px;
   color: var(--cl4);
@@ -212,6 +145,11 @@ header {
   border-inline-end: 1px solid var(--clr2);
 }
 
+.main-footer {
+  text-align: center;
+  padding: 5em;
+  background-color: var(--clr1);
+}
 /* Responsive */
 
 /* MOILE ONLY */
@@ -260,9 +198,9 @@ header {
 }
 
 /* Medium */
-@media (min-width: 880px) {
+@media (min-width: 840px) {
   .main-layout {
-    max-width: 840px;
+    max-width: 100%;
   }
 
   .card {
@@ -281,6 +219,10 @@ header {
 
   html {
     font-size: 14px;
+  }
+  .my-canvas {
+    width: 450px;
+    height: 450px;
   }
 }
 

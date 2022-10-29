@@ -1,37 +1,7 @@
-@media (min-width: 640px) {
-  .grid-container {
-    display: grid;
-    /* grid-template-columns: 5fr 1fr 1fr 1fr 1fr 1fr 1fr; */
-    grid-template-columns: 5fr repeat(5, 1fr);
-    /* grid-template-columns: 1fr repeat(6, 1fr); */
-    grid-template-rows: repeat(8, 1fr);
-    gap: 20px 20px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      " . . . . . . . ."
-      "canvas-container  txt-input txt-input txt-input txt-input txt-input"
-      "canvas-container  . up-down plus-line delete-container . "
-      "canvas-container  font-enlarge-containeer txt-mimizer-container align-left-cont align-center-cont align-right-cont "
-      "canvas-container  font-select-cont font-select-cont font-select-cont outline-cont . "
-      "canvas-container  stickers-container stickers-container stickers-container stickers-container stickers-container "
-      "canvas-container  stickers-container stickers-container stickers-container stickers-container stickers-container "
-      "canvas-container  . . . share share .";
-
-    background-color: var(--clr6);
-  }
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 5px 10px;
-  grid-template-areas:
-    "canvas-container txt-input txt-input txt-input txt-input txt-input"
-    "canvas-container . up-down plus-line delete-container ."
-    "canvas-container font-enlarge-containeer txt-mimizer-container align-left-cont align-center-cont align-right-cont"
-    "canvas-container font-select-cont font-select-cont font-select-cont outline-cont color-cont"
-    "canvas-container stickers-container stickers-container stickers-container stickers-container stickers-container"
-    "canvas-container stickers-container stickers-container stickers-container stickers-container stickers-container"
-    "canvas-container . . . share share";
-}
+"canvas-container . txt-input txt-input txt-input txt-input txt-input."
+      "canvas-container . . up-down plus-line delete-container . ."
+      "canvas-container . font-enlarge-containeer txt-mimizer-container align-left-cont align-center-cont align-right-cont ."
+      "canvas-container . font-select-cont font-select-cont font-select-cont outline-cont color-cont ."
+      "canvas-container . . save-cont url-cont download-cont . ."
+      "canvas-container . . . . . . ."
+      "canvas-container . . . . . . .";

@@ -5,6 +5,30 @@
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
+.tag-strip {
+  display: grid;
+  min-height: 5em;
+
+  grid-template-columns: repeat(auto-fit, minmax(4em, 1fr));
+  font-family: lato;
+  text-align: center;
+  align-items: center;
+}
+
+.tag-strip h2 {
+  margin: 0;
+  transition: 0.3s ease;
+}
+
+.tag-strip h2:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.tag-strip-cont {
+  background-color: white;
+}
+
 .gallary-view .img-container {
   background-color: black;
   overflow: hidden;

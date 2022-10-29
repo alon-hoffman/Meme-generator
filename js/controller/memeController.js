@@ -6,11 +6,9 @@ const userPrefs = {
 
 function renderMeme() {
     const meme = getCurrentMeme()
-    if (meme.selectedImgId === "upload") return
-    else { var src = `img/${meme.selectedImgId}.jpg` }
 
     const img = new Image() // Create a new html img element
-    img.src = src // Send a network req to get that image, define the img src
+    img.src = meme.selectedImgId // Send a network req to get that image, define the img src
     // img.src = `img/${meme.selectedImgId}.jpg` // Send a network req to get that image, define the img src
     // When the image ready draw it on the canvas
     img.onload = () => {
@@ -58,10 +56,15 @@ function renderLines(meme) {
         gCtx.strokeStyle = line.outline
         gCtx.fillStyle = line.color
         gCtx.textAlign = line.align
-        gCtx.fillText(txt, line.xPose, line.yPose) // Draws (fills) a given text at the given (x, y) position.
-        gCtx.strokeText(txt, line.xPose, line.yPose) // Draws (strokes) a given text at the given (x, y) position.
+        gCtx.fillText(txt, line.xPose * gElCanvas.width, line.yPose * gElCanvas.width) // Draws (fills) a given text at the given (x, y) position.
+        gCtx.strokeText(txt, line.xPose * gElCanvas.width, line.yPose * gElCanvas.width) // Draws (strokes) a given text at the given (x, y) position.
     }
     );
+}
+
+function onUpdateLine(property, value) {
+    updateLine(property, value)
+    renderMeme()
 }
 
 function onRemoveLine() {
@@ -82,27 +85,12 @@ function onMoveLine(pos) {
     renderMeme()
 }
 
-//Typography
-
 function onChangeFontSize(dir) {
     changeFontSize(dir)
     renderMeme()
 }
 
-function onAlignTxt(dir) {
-    alignTxt(dir)
-    renderMeme()
-}
 
-function onChangeFont(font) {
-    changeFont(font)
-    renderMeme()
-}
-
-function onSelectColor(color, type) {
-    setColor(color, type)
-    renderMeme()
-}
 
 function onOpenColorPicker(el) {
     el.querySelector('.outine-color').click()
@@ -114,10 +102,8 @@ function onOpenColorPicker(el) {
 function drawRect() {
     const meme = getCurrentMeme()
     const line = meme.lines[meme.selectedLineIdx]
-    // gCtx.strokeStyle = 'black'
-    // gCtx.strokeRect(20, line.yPose - line.size + 5, 410, line.size + 5)
     gCtx.fillStyle = 'rgba(255, 255, 255, 0.342)'
-    gCtx.fillRect(20, line.yPose - (gElCanvas.width * line.size) + 5, 410, (gElCanvas.width * line.size) + 5)
+    gCtx.fillRect(20, line.yPose * gElCanvas.width - (gElCanvas.width * line.size) + 5, 410, (gElCanvas.width * line.size) + 5)
     setTimeout(renderMeme, 3000)
 }
 
@@ -126,5 +112,6 @@ function updateTxtInput() {
     document.querySelector('.line-writer').value = meme.lines[meme.selectedLineIdx].txt
     document.querySelector('.line-writer').focus()
 }
+
 
 

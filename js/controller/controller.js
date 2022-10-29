@@ -4,13 +4,17 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 let gCtx
 let gElCanvas
-let draggedLine = null;
+const appState = {
+    draggedLine: null,
+    lastClick: null,
+    addLineTimeOut: null
+}
 function init() {
     gElCanvas = document.getElementById('my-canvas')
     resizeCanvas()
 
     gCtx = gElCanvas.getContext('2d')
-    displayTemplates()
+    displayTemplates('all')
     addListeners()
     resizeCanvas()
 }
@@ -42,28 +46,37 @@ function onDown(ev) {
     const meme = getCurrentMeme()
     const lines = meme.lines
     lines.forEach((line, i) => {
-        if (line.yPose > pos.y && pos.y > (line.yPose - line.size * gElCanvas.width)) {
+        if (line.yPose * gElCanvas.width > pos.y &&
+            pos.y > (line.yPose * gElCanvas.width - line.size * gElCanvas.width)) {
             onSelectByClick(i)
-            draggedLine = i
+            appState.draggedLine = i
+
             document.body.style.cursor = 'grabbing'
+            return
         }
     });
-
+    if (appState.draggedLine === null) {
+        appState.addLineTimeOut = setTimeout(() => {
+            onAddLine()
+            onMoveLine(pos)
+        }, 750)
+    }
 }
 
 function onMove(ev) {
-    if (draggedLine === null) return
+    if (appState.draggedLine === null) return
     const pos = getEvPos(ev)
     onMoveLine(pos)
 }
 
 function onUp() {
-    draggedLine = null
     document.body.style.cursor = 'grab'
+    appState.draggedLine = null
+    appState.addLineTimeOut = null
 }
 
 function resizeCanvas() {
-    if (window.innerWidth < 640) {
+    if (window.innerWidth < 840) {
         gElCanvas.width = window.innerWidth
         gElCanvas.height = window.innerWidth
         renderMeme()
@@ -96,11 +109,14 @@ function getEvPos(ev) {
 function switchToEditor() {
     document.querySelector('.editor').classList.remove('hide');
     document.querySelector('.gallary-view').classList.add('hide');
+    document.querySelector('.tag-strip-cont').classList.add('hide');
 }
 
 function switchToGallery() {
+    document.querySelector('.line-writer').value = ''
     document.querySelector('.editor').classList.add('hide');
     document.querySelector('.gallary-view').classList.remove('hide');
+    document.querySelector('.tag-strip-cont').classList.remove('hide');
 }
 
 //share and download
