@@ -9,7 +9,7 @@
   display: grid;
   min-height: 5em;
 
-  grid-template-columns: repeat(auto-fit, minmax(4em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
   font-family: lato;
   text-align: center;
   align-items: center;

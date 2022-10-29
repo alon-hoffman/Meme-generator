@@ -90,8 +90,6 @@ function onChangeFontSize(dir) {
     renderMeme()
 }
 
-
-
 function onOpenColorPicker(el) {
     el.querySelector('.outine-color').click()
 }
@@ -110,7 +108,6 @@ function drawRect() {
 function updateTxtInput() {
     const meme = getCurrentMeme()
     document.querySelector('.line-writer').value = meme.lines[meme.selectedLineIdx].txt
-    document.querySelector('.line-writer').focus()
 }
 
 
