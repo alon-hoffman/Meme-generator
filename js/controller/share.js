@@ -17,22 +17,28 @@ function downloadCanvas(elLink) {
 }
 
 function onImgInput(ev) {
-    loadImageFromInput(ev, renderImg)
+    loadImageFromInput(ev, updateImgId)
 }
 
 // CallBack func will run on success load of the img
 function loadImageFromInput(ev, onImageReady) {
+    console.log(ev);
     const reader = new FileReader()
     // After we read the file
     reader.onload = function (event) {
         let img = new Image() // Create a new html img element
         img.src = event.target.result // Set the img src to the img file we read
+        // console.log(event.target.result);
         // Run the callBack func, To render the img on the canvas
-        img.onload = onImageReady.bind(null, img)
         // Can also do it this way:
-        // img.onload = () => onImageReady(img)
+        onImgSelected(1)
+        img.onload = () => {
+            onImageReady(img.src)
+            renderMeme()
+        }
+        // updateImgId(img.src) // Read the file we picked
     }
-    reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
+    reader.readAsDataURL(ev.target.files[0])
 }
 
 

@@ -52,55 +52,54 @@
           </div>
 
           <div class="up-down">
-            <button onclick="onChangeLine()">
+            <button onclick="onChangeLine()" title="change line">
               <img
                 src="icons/up-and-down-opposite-double-arrows-side-by-side.png"
               />
             </button>
           </div>
-          <div class="plus-line">
+          <div class="plus-line" title="Add line">
             <button onclick="onAddLine()"><img src="icons/plus.png" /></button>
           </div>
-          <div class="delete-container">
+          <div class="delete-container" title="Delete line">
             <button onclick="onRemoveLine()">
               <img src="icons/trash-can.png" alt="" />
             </button>
           </div>
-          <div class="font-enlarge-containeer">
+          <div class="font-enlarge-containeer" title="Increases font">
             <button onclick="onChangeFontSize(1)">
               <img src="icons/increase font - icon.png" />
             </button>
           </div>
-          <div class="txt-mimizer-container">
+          <div class="txt-mimizer-container" title="Decrease font">
             <button onclick="onChangeFontSize(-1)">
               <img src="icons/decrease font - icon.png" />
             </button>
           </div>
           <div class="align-left-cont">
-            <button onclick="onUpdateLine('align','right')">
+            <button onclick="onUpdateLine('align','right')" title="Align Right">
               <img src="icons/left-text-alignment-option.png" />
             </button>
           </div>
           <div class="align-center-cont">
-            <button onclick="onUpdateLine('align','center')">
+            <button onclick="onUpdateLine('align','center')" title="Align center">
               <img src="icons/centered-text-of-alignment-button.png" />
             </button>
           </div>
           <div class="align-right-cont">
-            <button onclick="onUpdateLine('align','left')">
+            <button onclick="onUpdateLine('align','left')" title="Align right">
               <img src="icons/right-text-alignment.png" />
             </button>
           </div>
-          <div onclick="onOpenColorPicker(this)" class="outline-cont">
+          <div onclick="onOpenColorPicker(this)" class="outline-cont" title="Change outline color">
             <input
             oninput="onUpdateLine('outline',this.value)"
               class="outine-color hide"
               type="color"
             />
             <img  src="icons/letter-a.png" alt="">
-
           </div>
-          <div onclick="onOpenColorPicker(this)" class="color-cont">
+          <div onclick="onOpenColorPicker(this)" class="color-cont" title="Change color">
             <input
             oninput="onUpdateLine('color',this.value)"
               class="outine-color hide"
@@ -108,7 +107,7 @@
             />
             <img src="icons/color-picker.png">
           </div>
-          <div class="font-select-cont">
+          <div class="font-select-cont" title="select font">
             <select onchange="onUpdateLine('font',this.value)">
               <option value="Impact">Impact</option>
               <option value="lato">lato</option>
@@ -118,19 +117,19 @@
             </select>
           </div>
           
-          <div class="save-cont">
+          <div class="save-cont" title="Delete meme">
             <button onclick="switchToGallery()">
               <img src="icons/cancel.png" />
             </button>
           </div>
 
           <div class="url-cont">
-            <button class="btn" onclick="uploadImg()">
+            <button class="btn" onclick="uploadImg()" title="Share on facebook">
               <img src="icons/url.png" />
             </button>
           </div>
 
-          <div class="download-cont" onclick="onClickDownload()">
+          <div class="download-cont" onclick="onClickDownload()" title="Download meme">
           <!-- <div class="download-cont" onclick="downloadCanvas(this)" download="file-name"> -->
             <button >
               <img src="icons/download.png" />

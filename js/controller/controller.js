@@ -77,8 +77,8 @@ function onUp() {
 
 function resizeCanvas() {
     if (window.innerWidth < 840) {
-        gElCanvas.width = window.innerWidth
-        gElCanvas.height = window.innerWidth
+        gElCanvas.width = window.innerWidth * 0.8
+        gElCanvas.height = window.innerWidth * 0.8
         renderMeme()
     }
 }

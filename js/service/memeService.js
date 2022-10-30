@@ -105,9 +105,7 @@ function createMeme(imgId) {
     }
 }
 
-function _createLine() {
-    return {
-
-    }
+function updateImgId(imgId) {
+    gMeme.selectedImgId = imgId
+    console.log(gMeme.selectedImgId);
 }
-

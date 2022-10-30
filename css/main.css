@@ -219,11 +219,25 @@ button {
 
   html {
     font-size: 14px;
+    scrollbar-width: normal;
+  }
+
+  .canvas-container {
+    display: flex;
+    justify-content: center;
   }
   .my-canvas {
     width: 450px;
     height: 450px;
   }
+}
+
+.logo {
+  width: 80%;
+}
+
+a {
+  color: unset;
 }
 
 /* LARGE */
