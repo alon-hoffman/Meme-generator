@@ -14,12 +14,6 @@ function displayTemplates(tag) {
         templates.map(template =>
             `<div onclick="onImgSelected('img/${template}.jpg')" class="img-container"><img src="img/${template}.jpg" alt=""></div>`
         );
-    htmlStr.push(`<input
-    type="file"
-    class="file-input btn"
-    name="image"
-    onchange="onImgInput(event)"
-  />`)
     document.querySelector('.gallary-view').innerHTML = htmlStr.join('')
 }
 
